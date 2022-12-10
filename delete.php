@@ -3,7 +3,7 @@ include('connection.php');
 if(!isset($_SESSION['user'])){
     ?>
 <script>
-window.location = "<?php echo $app_url_two .'login.php' ?>";
+window.location = "<?php echo $app_url .'login.php' ?>";
 </script>
 <?php
      }
