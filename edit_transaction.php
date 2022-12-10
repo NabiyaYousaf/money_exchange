@@ -344,7 +344,7 @@ $transaction_id=$res['transaction_id'];
             });
 
             //total
-            $('#exchange').on('change', function() {
+            $('#amount_received').on('focus', function() {
                 let currency_check = $('#currency').val();
                 let rate_exchange = parseFloat($('#exchange').val());
                 let amount = parseFloat($('#amount').val());

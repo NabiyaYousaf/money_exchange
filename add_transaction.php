@@ -331,7 +331,7 @@ include('header.php');
             });
 
             //total
-            $('#exchange').on('change', function() {
+            $('#amount_received').on('focus', function() {
                 let currency_check = $('#currency').val();
                 let rate_exchange = parseFloat($('#exchange').val());
                 let amount = parseFloat($('#amount').val());
@@ -340,9 +340,11 @@ include('header.php');
                 if (currency_check == 'PKR') {
                     total = parseFloat(amount);
                     gtotal = parseFloat(amount / rate_exchange);
+                    console.log(total);
                 } else {
                     total = parseFloat(amount * rate_exchange);
                     gtotal = parseFloat(amount);
+                    console.log(total);
                 }
                 $('#amount_received').val(total);
                 $('#recv_from_customer').val(gtotal);
@@ -550,6 +552,9 @@ if(isset($_POST['save']))
                                 $rate=$res['exchange_rate'];
                                 $rcv_contact=$res['contact'];
                                 $rcv_from_customer=$res['receive_from_customer'];
+                                $bankName=$res['bank_name'];
+                                $bankIBAN=$res['bank_iban_no'];
+                                $pay_method=$res['payment_method'];
                                 }
                         ?>
                             <div style="width:10rem;">ORDER NO </div>
@@ -588,12 +593,16 @@ if(isset($_POST['save']))
                 </tr>
                 <tr>
                     <td style="border:1px solid black;">
-                        <div class="row d-flex">
-                            <div class="col-md-12"><b>Occupation</b><br>
-                                <?php echo $s_occupation; ?>
-                            </div>
-                            <div>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><b>Occupation</b></div>
+                            <div><b>Payment Method</b></div>
+                        </div>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><?php echo $s_occupation;; ?></div>
+                            <div> <?php echo $pay_method; ?></div>
+                        </div>
                     </td>
+
                     <td style="border:1px solid black;">
                         <div>Amount To be Delivered</div>
                         <div class="d-flex ml-5">
@@ -610,7 +619,16 @@ if(isset($_POST['save']))
                         <b>Customer Address</b><br>
                         Lahore
                     </td> -->
-                    <td></td>
+                    <td>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><b>Bank Name</b></div>
+                            <div><b>Bank IBAN</b></div>
+                        </div>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><?php echo $bankName; ?></div>
+                            <div> <?php echo $bankIBAN; ?></div>
+                        </div>
+                    </td>
                     <td style="border:1px solid black;">
                         <div>Exchange Rate</div>
                         <div class="d-flex ml-5">
@@ -701,25 +719,7 @@ if(isset($_POST['save']))
 
                     <td style="border:1px solid black;">
                         <div class="d-flex" style="paddin-bottom:1rem;">
-                            <?php
-                                $select_id="select * from transaction";
-                                $run=mysqli_query($conn,$select_id);
-                                while($res=mysqli_fetch_assoc($run)){
-                                $transaction_id=$res['transaction_id'];
-                                $s_address=$res['sender_address'];
-                                $s_name=$res['sender_name'];
-                                $s_phone=$res['sender_phone'];
-                                $s_trsansaction_reason=$res['transaction_reason'];
-                                $s_source_of_fund=$res['source_of_fund'];
-                                $s_occupation=$res['occupation'];
-                                $recv_name=$res['receiver_name'];
-                                $curr=$res['currency'];
-                                $amount_d=$res['amount'];
-                                $rate=$res['exchange_rate'];
-                                $rcv_contact=$res['contact'];
-                                $rcv_from_customer=$res['receive_from_customer'];
-                                }
-                        ?>
+                         
                             <div style="width:10rem;">ORDER NO </div>
                             <div><b>PK <?php echo $transaction_id; ?> </b></div>
                         </div>
@@ -756,11 +756,14 @@ if(isset($_POST['save']))
                 </tr>
                 <tr>
                     <td style="border:1px solid black;">
-                        <div class="row d-flex">
-                            <div class="col-md-12"><b>Occupation</b><br>
-                                <?php echo $s_occupation; ?>
-                            </div>
-                            <div>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><b>Occupation</b></div>
+                            <div><b>Payment Method</b></div>
+                        </div>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><?php echo $s_occupation;; ?></div>
+                            <div> <?php echo $pay_method; ?></div>
+                        </div>
                     </td>
                     <td style="border:1px solid black;">
                         <div>Amount To be Delivered</div>
@@ -778,7 +781,16 @@ if(isset($_POST['save']))
                         <b>Customer Address</b><br>
                         Lahore
                     </td> -->
-                    <td></td>
+                    <td>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><b>Bank Name</b></div>
+                            <div><b>Bank IBAN</b></div>
+                        </div>
+                        <div class="d-flex">
+                            <div style="width:10rem;"><?php echo $bankName; ?></div>
+                            <div> <?php echo $bankIBAN; ?></div>
+                        </div>
+                    </td>
                     <td style="border:1px solid black;">
                         <div>Exchange Rate</div>
                         <div class="d-flex ml-5">

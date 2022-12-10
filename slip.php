@@ -24,7 +24,7 @@ $print_id=$_GET['id'];
 
 <body>
     <div class="container">
-        <h2 style="margin:2rem 0;">Customer Copy</h2>
+        <h2 style="margin:2rem 0;">Agent Copy</h2>
         <div class="row">
             <div class="col-md-10">
 
@@ -80,24 +80,35 @@ $print_id=$_GET['id'];
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <div class="row d-flex">
-                                <div class="col-md-12"><b>Occupation</b><br><?php echo $res['occupation'] ?></div>
-                                <div>
+                        <td style="border:1px solid black;">
+                            <div class="d-flex">
+                                <div style="width:10rem;"><b>Occupation</b></div>
+                                <div><b>Payment Method</b></div>
+                            </div>
+                            <div class="d-flex">
+                                <div style="width:10rem;"><?php echo $res['occupation']; ?></div>
+                                <div> <?php echo $res['payment_method']; ?></div>
+                            </div>
                         </td>
                         <td>
                             <div>Amount To be Delivered</div>
                             <div class="d-flex ml-5">
-                                <div style="width:5rem;"><b><?php
-                            echo $res['currency'];
-                        ?></b></div>
-                                <div style="width:10rem;"><?php echo $res['amount_received']; ?></div>
+                                <div style="width:5rem;"><b>PKR</b></div>
+                                <div style="width:10rem;"><?php echo $res['amount']; ?></div>
                             </div>
                         </td>
 
                     </tr>
                     <tr>
                         <td>
+                            <div class="d-flex">
+                                <div style="width:10rem;"><b>Bank Name</b></div>
+                                <div><b>Bank IBAN</b></div>
+                            </div>
+                            <div class="d-flex">
+                                <div style="width:10rem;"><?php echo $res['bank_name']; ?></div>
+                                <div> <?php echo $res['bank_iban_no']; ?></div>
+                            </div>
                         </td>
                         <td>
                             <div>Exchange Rate</div>
@@ -120,10 +131,8 @@ $print_id=$_GET['id'];
                     <td>
                         Amount To Be Transimitted
                         <div class="d-flex ml-5">
-                            <div style="width:5rem;"><b><?php
-                            echo $res['currency'];
-                        ?></b></div>
-                            <div style="width:10rem;"><?php echo $res['amount_received']; ?></div>
+                            <div style="width:5rem;"><b>PKR</b></div>
+                            <div style="width:10rem;"><?php echo $res['amount']; ?></div>
                         </div>
                     </td>
                     </tr>
@@ -171,7 +180,7 @@ $print_id=$_GET['id'];
     <br><br>
 
 
-    <h2 style="margin:2rem 0;">Agent Copy</h2>
+    <h2 style="margin:2rem 0;">Customer Copy</h2>
     <div class="container">
         <div class="row">
             <div class="col-md-10">
@@ -228,23 +237,34 @@ $print_id=$_GET['id'];
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <div class="row d-flex">
-                                <div class="col-md-12"><b>Occupation</b><br><?php echo $res['occupation'] ?></div>
-                                <div>
+                        <td style="border:1px solid black;">
+                            <div class="d-flex">
+                                <div style="width:10rem;"><b>Occupation</b></div>
+                                <div><b>Payment Method</b></div>
+                            </div>
+                            <div class="d-flex">
+                                <div style="width:10rem;"><?php echo $res['occupation']; ?></div>
+                                <div> <?php echo $res['payment_method']; ?></div>
+                            </div>
                         </td>
                         <td>
                             <div>Amount To be Delivered</div>
                             <div class="d-flex ml-5">
-                                <div style="width:5rem;"><b><?php
-                            echo $res['currency'];
-                        ?></b></div>
-                                <div style="width:10rem;"><?php echo $res['amount_received']; ?></div>
+                                <div style="width:5rem;"><b>PKR</b></div>
+                                <div style="width:10rem;"><?php echo $res['amount']; ?></div>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
+                            <div class="d-flex">
+                                <div style="width:10rem;"><b>Bank Name</b></div>
+                                <div><b>Bank IBAN</b></div>
+                            </div>
+                            <div class="d-flex">
+                                <div style="width:10rem;"><?php echo $res['bank_name']; ?></div>
+                                <div> <?php echo $res['bank_iban_no']; ?></div>
+                            </div>
                         </td>
                         <td>
                             <div>Exchange Rate</div>
@@ -267,10 +287,8 @@ $print_id=$_GET['id'];
                     <td>
                         Amount To Be Transimitted
                         <div class="d-flex ml-5">
-                            <div style="width:5rem;"><b><?php
-                            echo $res['currency'];
-                        ?></b></div>
-                            <div style="width:10rem;"><?php echo $res['amount_received']; ?></div>
+                            <div style="width:5rem;"><b>PKR</b></div>
+                            <div style="width:10rem;"><?php echo $res['amount']; ?></div>
                         </div>
                     </td>
                     </tr>
@@ -283,12 +301,13 @@ $print_id=$_GET['id'];
                             <div class="d-flex ml-5">
                                 <div style="width:5rem;"><b>
                                     GBP
-                                </b></div>
+                                </b>
+                                </div>
                                 <div style="width:10rem;"><?php echo $res['receive_from_customer']; ?></div>
                             </div>
-            </div>
-            </td>
-            </tr>
+                        </div>
+                        </td>
+                    </tr>
             <?php
                                 }
                             }
